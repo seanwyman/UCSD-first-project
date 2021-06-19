@@ -1,6 +1,6 @@
 ---
   - name: install filebeat and metricbeat
-    hosts: test
+    hosts: Webservers
     become: true
     tasks:
         - name: download filebeat
