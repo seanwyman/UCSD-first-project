@@ -1,4 +1,4 @@
-## Automated ELK Stack Deployment
+`## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
@@ -33,7 +33,7 @@ redirecting traffic flowing to the server to muplite machines in the cloud preve
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the system metrics and system logs.
 - Filebeat watches for event data in log files, in this case its monitor system logs for changes and is reporting the findings to elasticsearch then its rewritten and formatted by kibana 
 
-- Metricbeat watches system metrics and running services, it montiors a lot of different services, like for example Apache or MySQL
+- Metricbeat watches system metrics and running services, it montiors a lot of different services, like for example `Apache` or `MySQL`
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -41,11 +41,11 @@ The configuration details of each machine may be found below.
 
 | Name     | Function  | IP Address | Operating System |
 |----------|---------- |------------|------------------|
-| Jump Box | Gateway   | 10.0.0.4   | Linux            |
-| Web-1    | Container | 10.0.0.10  | Linux            |
-| Web-2    | Container | 10.0.0.11  | Linux            |
-| Web-3    | Container | 10.0.0.7   | Linux            |
-| Elk VM   | Kibana    | 10.1.0.6   | Linux            |
+| Jump Box | Gateway   | `10.0.0.4` | Linux            |
+| Web-1    | Container | `10.0.0.10`| Linux            |
+| Web-2    | Container | `10.0.0.11`| Linux            |
+| Web-3    | Container | `10.0.0.7` | Linux            |
+| Elk VM   | Kibana    | `10.1.0.6` | Linux            |
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -53,19 +53,19 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from my personal ip address- 162.199.190.176    
+Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from my personal ip address- `162.199.190.176`    
 
 Machines within the network can only be accessed by the Jump Box machine via ssh with the correct ssh key.
-The Elk Vm could only be accessable via sshing from the container within the jump box, the ip address for that is: 13.66.223.181| 10.0.0.4
+The Elk Vm could only be accessable via sshing from the container within the jump box, the ip address for that is: `13.66.223.181`| `10.0.0.4`
 
 A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box |       Yes           |   162.199.190.176    |
-| Web-1    |       No            |   10.0.0.4           |
-| Web-2    |       No            |   10.0.0.4           |
-| Web-3    |       No            |   10.0.0.4           |
-| Elk-VM   |       No            |   10.0.0.4           | 
+| Jump Box |       Yes           |   `162.199.190.176`  |
+| Web-1    |       No            |   `10.0.0.4`         |
+| Web-2    |       No            |   `10.0.0.4`         |
+| Web-3    |       No            |   `10.0.0.4`         |
+| Elk-VM   |       No            |   `10.0.0.4`         | 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -79,10 +79,10 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - change the sysctl confg to allow the correct amount of memory required to run the Elk-VM
-- Install docker.io and pyhton3-pip using apt module
-- Install docker using pip module 
-- Install the container for the Elk-VM (sebp/elk:761) along with a restart policy and published ports (5601:5061,9200:9200,5044:5044) using docker_container module
-- Using systemd to restart docker when VM restarts 
+- Install `docker.io` and `pyhton3-pip`using `apt module`
+- Install `docker` using `pip module` 
+- Install the container for the Elk-VM (sebp/elk:761) along with a restart policy and published ports (`5601:5061`,`9200:9200`,`5044:5044`) using docker_container module
+- Using `systemd` to restart `docker` when VM restarts 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -94,15 +94,15 @@ The following screenshot displays the result of running `docker ps` after succes
 This ELK server is configured to monitor the following machines:
 | Name  | Ip Addresses  |
 |-------|---------------|
-| Web-1 | 10.0.0.10     |
-| Web-2 | 10.0.0.11     |
-| Web-3 | 10.0.0.7      |
+| Web-1 | `10.0.0.10`   |
+| Web-2 | `10.0.0.11`   |
+| Web-3 | `10.0.0.7`    |
 
 We have installed the following Beats on these machines:
 - FileBeat 
 - MetricBeat
 These Beats allow us to collect the following information from each machine:
--Filebeat collects data about system logs and changes made to those logs abd reports them to elasticsearch.for example,Filebeat montiors everything in /var/log/ directroy inside the VM, if something changed in those logs Filebeat would forward that data to elasticsearch.
+-Filebeat collects data about system logs and changes made to those logs abd reports them to elasticsearch.for example,Filebeat montiors everything in `/var/log/` directroy inside the VM, if something changed in those logs Filebeat would forward that data to elasticsearch.
 -Metricbeat collects metric data about the computer itself like for example the operating system or cpu usage
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,12 +111,17 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the filebeat-config.yml file to /etc/ansible/files.
-- Update the filebeat-config.yml file to include the ip of your personal Elk machine on lines 1106 and 1806
-- Run the playbook, and navigate to http://(YOUR_ELK_MACHINE_IP):5601/app/kibana to check that the installation worked as expected.
-- The playbook is FileBeat_MetricBeat.yml and it should be copied to /etc/ansible/roles
-- There Should be a hosts file inside of /etc/ansible/ which allows the user to make groups for their machines, All the user has to do is separate the ip into groups inside that file, for example I used the webservers group and the elk group, and after pasting all the ips into the host file make sure the ips are followed by ansible_python_interpreter=/usr/bin/python3 or else the playbooks might not work correctly
-- The URL to verify that the ELK server is working is http://(YOUR_ELK_MACHINE_IP):5601/app/kibana
+- Copy the `filebeat-config.yml` file to `/etc/ansible/files`.
+- 
+- Update the `filebeat-config.yml` file to include the ip of your personal Elk machine on lines 1106 and 1806
+
+- Run the playbook, and navigate to `http://(YOUR_ELK_MACHINE_IP):5601/app/kibana` to check that the installation worked as expected.
+
+- The playbook is `FileBeat_MetricBeat.yml` and it should be copied to `/etc/ansible/roles`
+
+- There Should be a `hosts` file inside of `/etc/ansible/` which allows the user to make groups for their machines, All the user has to do is separate the ip into groups inside that file, for example I used the `webservers group` and the `elk` group, and after pasting all the ips into the host file make sure the ips are followed by `ansible_python_interpreter=/usr/bin/python3` or else the playbooks might not work correctly
+
+- The URL to verify that the ELK server is working is `http://(YOUR_ELK_MACHINE_IP):5601/app/kibana`
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Bonus - Commands
