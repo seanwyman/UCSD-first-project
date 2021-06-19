@@ -114,8 +114,9 @@ SSH into the control node and follow the steps below:
 - Copy the filebeat-config.yml file to /etc/ansible/files.
 - Update the filebeat-config.yml file to include the ip of your personal Elk machine on lines 1106 and 1806
 - Run the playbook, and navigate to http://(YOUR_ELK_MACHINE_IP):5601/app/kibana to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_ The playbook is 
--  There Should be a hosts file inside of /etc/ansible/ which allows the user to make groups for their machines, All the user has to do is separate the ip into groups inside that file, for example I used the webservers group and the elk group, and after pasting all the ips into the host file make sure the ips are followed by ansible_python_interpreter=/usr/bin/python3 or else the playbooks might not work correctly
+- The playbook is FileBeat_MetricBeat.yml and it should be copied to /etc/ansible/roles
+- There Should be a hosts file inside of /etc/ansible/ which allows the user to make groups for their machines, All the user has to do is separate the ip into groups inside that file, for example I used the webservers group and the elk group, and after pasting all the ips into the host file make sure the ips are followed by ansible_python_interpreter=/usr/bin/python3 or else the playbooks might not work correctly
 - The URL to verify that the ELK server is working is http://(YOUR_ELK_MACHINE_IP):5601/app/kibana
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bonus - Commands
