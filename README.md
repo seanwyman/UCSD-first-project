@@ -9,7 +9,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - _TODO: Enter the playbook file._
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -36,7 +36,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box | Gateway   | 10.0.0.4   | Linux            |
 | Web-1    | Container | 10.0.0.10  | Linux            |
 | Web-2    | Container | 10.0.0.11  | Linux            |
-| Web-3      Container | 10.0.0.7   | Linux            |
+| Web-3    | Container | 10.0.0.7   | Linux            |
 | Elk VM   | Kibana    | 10.1.0.6   | Linux            |
 
 ### Access Policies
