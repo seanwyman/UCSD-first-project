@@ -111,11 +111,11 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the filebeat-config.yml file to /etc/ansible/files.
+- Update the filebeat-config.yml file to include the ip of your personal Elk machine on lines 1106 and 1806
+- Run the playbook, and navigate to http://(YOUR_ELK_MACHINE_IP):5601/app/kibana to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- _Which file is the playbook? Where do you copy it?_ The playbook is 
+-  There Should be a hosts file inside of /etc/ansible/ which allows the user to make groups for their machines, All the user has to do is separate the ip into groups inside that file, for example I used the webservers group and the elk group, and after pasting all the ips into the host file make sure the ips are followed by ansible_python_interpreter=/usr/bin/python3 or else the playbooks might not work correctly
+- The URL to verify that the ELK server is working is http://(YOUR_ELK_MACHINE_IP):5601/app/kibana
