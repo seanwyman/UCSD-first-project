@@ -33,10 +33,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Name     | Function  | IP Address | Operating System |
 |----------|---------- |------------|------------------|
-| Jump Box | Gateway   | 10.0.0.1   | Linux            |
-| Web-1    | Container |            | Linux            |
-| Web-2    | Container |            | Linux            |
-| Elk VM   | Kibana    |            | Linux            |
+| Jump Box | Gateway   | 10.0.0.4   | Linux            |
+| Web-1    | Container | 10.0.0.10  | Linux            |
+| Web-2    | Container | 10.0.0.11  | Linux            |
+| Web-3      Container | 10.0.0.7   | Linux            |
+| Elk VM   | Kibana    | 10.1.0.6   | Linux            |
 
 ### Access Policies
 
@@ -73,8 +74,7 @@ The playbook implements the following tasks:
 - Using systemd to restart docker when VM restarts 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![Docker ps](https://user-images.githubusercontent.com/86163817/122655446-1b6c7100-d107-11eb-9fd9-ad3bf585eb75.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
