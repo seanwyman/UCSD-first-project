@@ -23,15 +23,21 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly stable, in addition to restricting access to the network. 
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Load balancing ensures that the application will be highly stable, in addition to restricting access to the network. The load balancer protects against DDoS attacks by 
+redirecting traffic flowing to the server to muplite machines in the cloud preventing the attack from successing. 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the system metrics and system logs.
+- Filebeat watches for event data in log files, in this case its monitor system logs for changes and is reporting the findings to elasticsearch then its rewritten and formatted by kibana 
+
+- Metricbeat watches system metrics and running services, it montiors a lot of different services, like for example Apache or MySQL
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function  | IP Address | Operating System |
 |----------|---------- |------------|------------------|
