@@ -47,6 +47,8 @@ The configuration details of each machine may be found below.
 | Web-3    | Container | 10.0.0.7   | Linux            |
 | Elk VM   | Kibana    | 10.1.0.6   | Linux            |
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
@@ -65,6 +67,8 @@ A summary of the access policies in place can be found in the table below.
 | Web-3    |       No            |   10.0.0.4           |
 | Elk-VM   |       No            |   10.0.0.4           | 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
@@ -75,15 +79,16 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 - change the sysctl confg to allow the correct amount of memory required to run the Elk-VM
-- Install docker.io using apt module
-- Install pyhton3-pip using apt module 
+- Install docker.io and pyhton3-pip using apt module
 - Install docker using pip module 
-- Install the container for the Elk-VM (sebp/elk:761} using docker_container module
+- Install the container for the Elk-VM (sebp/elk:761) along with a restart policy and published ports (5601:5061,9200:9200,5044:5044) using docker_container module
 - Using systemd to restart docker when VM restarts 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
 ![Docker ps](https://user-images.githubusercontent.com/86163817/122655446-1b6c7100-d107-11eb-9fd9-ad3bf585eb75.PNG)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -96,9 +101,11 @@ This ELK server is configured to monitor the following machines:
 We have installed the following Beats on these machines:
 - FileBeat 
 - MetricBeat
-
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+-Filebeat collects data about system logs and changes made to those logs abd reports them to elasticsearch.for example,Filebeat montiors everything in /var/log/ directroy inside the VM, if something changed in those logs Filebeat would forward that data to elasticsearch.
+-Metricbeat collects metric data about the computer itself like for example the operating system or cpu usage
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
