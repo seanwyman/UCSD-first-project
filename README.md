@@ -74,6 +74,7 @@ The playbook implements the following tasks:
 - Using systemd to restart docker when VM restarts 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+
 ![Docker ps](https://user-images.githubusercontent.com/86163817/122655446-1b6c7100-d107-11eb-9fd9-ad3bf585eb75.PNG)
 
 ### Target Machines & Beats
@@ -85,7 +86,8 @@ This ELK server is configured to monitor the following machines:
 | Web-3 | 10.0.0.7      |
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- FileBeat 
+- MetricBeat
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
