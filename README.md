@@ -129,7 +129,7 @@ Bonus - Commands
 `curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/My_Elk_PlayBook.yml`
 
 - To download the `FileBeat_MetricBeat.yml`,use 
-`curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/FileBeat_MetricBeat.yml`
+|curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/FileBeat_MetricBeat.yml|
 
 - To download the `filebeat-config.yml`,use 
 `curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/filebeat-config.yml `
