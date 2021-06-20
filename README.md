@@ -126,18 +126,18 @@ SSH into the control node and follow the steps below:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Bonus - Commands
 - To download the `My_Elk_PlayBook.yml`,use 
---
+---
 curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/My_Elk_PlayBook.yml
---
+---
 - To download the `FileBeat_MetricBeat.yml`,use 
---
+---
 curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/FileBeat_MetricBeat.yml
---
+---
 - To download the `filebeat-config.yml`,use 
---
+---
 curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/filebeat-config.yml
---
+---
 - To download the `Metricbeat-config.yml`,use 
---
+---
 curl -L -O https://github.com/seanwyman/UCSD-first-project/blob/main/Ansible/YML/Metricbeat-config.yml
---
+---
